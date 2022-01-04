@@ -42,3 +42,18 @@ scRNA <- LoadH5Seurat("GSE153643_RAW/GSM4648565_liver_raw_counts.h5seurat")
 ```
 
 ## Standard pre-processing workflow
+GOAL:  To ensure that only single, live cells are included in downstream analysis(doi: 10.1186/s13059-016-0888-1)
+### QC
+#### The number of unique genes and total molecules
+
+#### Filter out low-quality/dying cells through the percentage of mitochondrial genome in all genome
+
+Low-quality / dying cells often exhibit extensive mitochondrial contamination
+
+Using `PercentageFeatureSet()` function to calculate the percentage of mitochondrial gene in cell, which be able to identify dying cells or low- quality cells.
+
+(Sum of the counts for features belonging to the set)*100 / the column sum for all features times (https://www.rdocumentation.org/packages/Seurat/versions/3.1.3/topics/PercentageFeatureSet)
+```{r mito}
+# The [[ operator can add columns to object metadata. This is a great place to stash QC stats
+pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
+```
