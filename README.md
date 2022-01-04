@@ -88,3 +88,9 @@ pbmc <- subset(pbmc, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent
 ```
 ## Normalizing the data
 GOALS：To remove the non-biological variation as much as possible, e.g. low input material and various forms of bias or noise present in the sequencing process(https://doi.org/10.3389/fgene.2020.00041)
+LogNormalize:
+Feature counts for each cell are divided by the total counts for that cell and multiplied by the scale.factor(10,000 by default). This is then natural-log transformed using log1p.
+
+Formula:log1p(value/colSums[cell-x] *scale_factor). log1p means log(x + 1)
+
+why lognormalize-https://doi.org/10.1101/576827
