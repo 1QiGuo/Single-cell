@@ -87,10 +87,16 @@ plot1 + plot2
 pbmc <- subset(pbmc, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 5)
 ```
 ## Normalizing the data
-GOALS：To remove the non-biological variation as much as possible, e.g. low input material and various forms of bias or noise present in the sequencing process(https://doi.org/10.3389/fgene.2020.00041)
-LogNormalize:
+GOALS：To remove the non-biological variation as much as possible, e.g. various forms of bias or noise present in the sequencing process(https://doi.org/10.3389/fgene.2020.00041)
+
+### LogNormalize:
 Feature counts for each cell are divided by the total counts for that cell and multiplied by the scale.factor(10,000 by default). This is then natural-log transformed using log1p.
 
 Formula:log1p(value/colSums[cell-x] *scale_factor). log1p means log(x + 1)
 
-why lognormalize-https://doi.org/10.1101/576827
+### SCTransform(10.1186/s13059-019-1874-1)
+1. A single scaling factor does not effectively normalize both lowly and highly expressed genes. Genes with different overall abundances exhibited distinct patterns after log-normalization, and only low/medium abundance genes in the bottom three tiers were effectively normalized.
+![log](lognormalization.png)
+2. Moreover, gene variance was also confounded with sequencing depth after log-normalization.
+3. Single cell count data can be overfit by a standard (two-parameter) NB distribution
+![overfit for NB](overfit.png)
