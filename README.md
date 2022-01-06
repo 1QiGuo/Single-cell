@@ -100,3 +100,6 @@ Formula:log1p(value/colSums[cell-x] *scale_factor). log1p means log(x + 1)
 2. Moreover, gene variance was also confounded with sequencing depth after log-normalization.
 3. Single cell count data can be overfit by a standard (two-parameter) NB distribution
 ![overfit for NB](overfit.png)
+
+## Identification of highly variable features (feature selection)
+High cell-to-cell variation in the dataset (i.e, they are highly expressed in some cells, and lowly expressed in others)
