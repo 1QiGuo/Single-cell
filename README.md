@@ -1,4 +1,10 @@
 # Single-cell
+## Sequencing(10.1038/s41587-020-0465-8)
+### 10x Chromium
+1. Strongest consistent performance
+2. Less time
+### Smart-seq2
+1. cost much
 ## Setup data
 ### Barcodes.tsv.gz, features.tsv.gz, matrix.mtx.gz
 1.Barcodes.tsv.gz: cell label(colnames) 
