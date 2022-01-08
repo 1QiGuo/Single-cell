@@ -34,7 +34,7 @@ scRNA <- CreateSeuratObject(counts = counts)
 ### H5 file
 H5 is a data file saved in the Hierarchical Data Format (HDF). It contains multidimensional arrays of data.
 ```{r}
-sce <- Read10X_h5(filename = xxx_matrices_h5.h5")
+sce <- Read10X_h5("filename = xxx_matrices_h5.h5")
 sce <- CreateSeuratObject(counts = sce)
 ```
 ### H5ad file
