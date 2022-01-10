@@ -50,7 +50,7 @@ scRNA <- LoadH5Seurat("GSE153643_RAW/GSM4648565_liver_raw_counts.h5seurat")
 ## Standard pre-processing workflow(https://satijalab.org/seurat/articles/pbmc3k_tutorial.html)
 GOAL:  To ensure that only single, live cells are included in downstream analysis(doi: 10.1186/s13059-016-0888-1)
 ![pbmc_metadata](pbmc_meta.png)
-orig.ident: number of cells in each sample(automatically set to active ident)(barcode)
+orig.ident: Each sample has a kind of orig.ident and total number of same orig.ident on behalf of total number of cells (automatically set to active ident)(barcode)
 
 nCount_RNA: number of count(UMI) in each cell
 
